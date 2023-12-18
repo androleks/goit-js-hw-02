@@ -1,17 +1,29 @@
-Оголоси функцію getShippingCost(country), яка повинна перевіряти можливість доставки товару в країну користувача (параметр country) і повертати повідомлення про результат. Обов'язково використовуй інструкцію switch.
+function getShippingCost(country) {
+    
+    let price = 100;
 
-Формат рядка, що повертається "Shipping to <country> will cost <price> credits", де замість <country> і <price> необхідно підставити відповідні значення.
-
-Список країн і вартість доставки:
-
-China — 100 кредитів
-Chile — 250 кредитів
-Australia — 170 кредитів
-Jamaica — 120 кредитів
-Зі списку видно, що доставка можлива не скрізь. Якщо зазначена країна відсутня у списку, то функція повинна повернути рядок "Sorry, there is no delivery to your country".
-
-Візьми код нижче і встав після оголошення своєї функції для перевірки коректності її роботи. У консоль будуть виведені результати її роботи.
-
+    switch (country) { 
+        case 'China':
+            price = 100;
+            return (`Shipping to ${country} will cost ${price} credits`);
+            break;
+        case 'Chile':
+            price = 250;
+            return (`Shipping to ${country} will cost ${price} credits`);
+            break;
+        case 'Australia':
+            price = 170;
+            return (`Shipping to ${country} will cost ${price} credits`);
+            break;
+        case 'Jamaica':
+            price = 120;
+            return (`Shipping to ${country} will cost ${price} credits`);
+            break;
+        default:
+            return ('Sorry, there is no delivery to your country');
+    }
+    
+}
 console.log(getShippingCost("Australia")); // "Shipping to Australia will cost 170 credits"
 console.log(getShippingCost("Germany")); // "Sorry, there is no delivery to your country"
 console.log(getShippingCost("China")); // "Shipping to China will cost 100 credits"
